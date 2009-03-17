@@ -67,7 +67,9 @@ typedef int bool;
 			
 			line = default_pattern.sub(r'/* \1 */',line)	
 			line=id_pattern.sub("", line)
-			line=label_pattern.sub(r'/*! \1 */', line)
+			m= label_pattern.match(line)
+			if m :
+				line=label_pattern.sub('', line) + "//!< " + m.groups(1)[0]
 			line=package_pattern.sub("", line)
 			line=include_pattern.sub("//"+line, line)
 
