@@ -55,7 +55,7 @@ typedef int bool;
 			if enum_pattern.match(line) :
 				in_enum = True
 			else:	
-				line=enum_message.subn(r' enum \1 *', line, 1)[0]
+				line=enum_message.subn(r' enum \1 ', line, 1)[0]
 				
 				
 			if in_enum:
